@@ -1,0 +1,168 @@
+# Project information
+site_name: Demand forecast
+site_url: https://stlakedfdevwesteu001.z6.web.core.windows.net/
+site_author: Vadym Pakholchuk
+site_description: >-
+  Create a branded static documentation for SMART-IT Demand Forecast project 
+
+# Repository
+repo_name: 'sb-df.databricks'
+repo_url: 'https://ds-vsts.visualstudio.com/SmartDecisionHub/_git/sb-df.databricks?path=/Scripts'
+# repo_name: 'sb-df.az-machine-learning'
+# repo_url: 'https://ds-vsts.visualstudio.com/SmartDecisionHub/_git/sb-df.az-machine-learning'
+
+# Licence
+copyright: 'Made by <a href="https://www.smart-it.com/uk/"> SMART-IT </a>'
+
+# Copyright
+copyright: Copyright &copy; 2016 - 2022 SMART-IT
+# Themes 
+theme:
+  name: material
+  font:
+    text: DM Sans
+    code: DM Mono
+  palette:
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
+  features:
+    # - announce.dismiss
+    - content.code.annotate
+    - content.tabs.link
+    # - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  logo: img/DF_logo.svg
+  favicon: img/DF_logo.svg
+  language: en
+
+site_url: ""
+use_directory_urls: false
+
+plugins:
+    - search
+    - mkdocstrings
+    # - offline # doesnt work in free version
+    - minify:
+        minify_html: true
+    - git-revision-date-localized:
+        type: timeago
+    - git-authors:
+        show_contribution: True
+    - table-reader
+    - img2fig
+    - mknotebooks:
+        execute: false
+        # mkdocs-material theme has nicer cell styling
+        enable_default_jupyter_cell_styling: false
+        enable_default_pandas_dataframe_styling: true
+    - awesome-pages
+#    - enumerate-headings
+    - print-site:
+        exclude:
+            - archive/*
+
+# extra_css:
+#   - extras/styles.css
+
+
+markdown_extensions:
+    - codehilite
+    - markdown.extensions.admonition
+    - markdown.extensions.attr_list
+    - markdown.extensions.md_in_html
+    - markdown.extensions.codehilite:
+        guess_lang: false
+    - markdown.extensions.def_list
+    - markdown.extensions.footnotes
+    - markdown.extensions.meta
+    - markdown.extensions.toc:
+        permalink: true
+    - pymdownx.arithmatex:
+        generic: true
+    - pymdownx.betterem:
+        smart_enable: all
+    - pymdownx.caret
+    - pymdownx.critic
+    - pymdownx.details
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.inlinehilite
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.snippets:
+        check_paths: true
+    - pymdownx.superfences
+    - pymdownx.tabbed
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.tilde
+
+nav:
+    - Home: 
+        - 'Intro': index.md
+        - 'Azure Databricks compomemt': index_adb.md
+        - 'Azure ML component': index_aml.md
+        - 'Documentation notes': index_notes.md
+    - Databricks code:
+        - Config:
+            - 'Aggregation config': sb-df-databricks/config/aggregation_config.md
+            - 'Features config': sb-df-databricks/config/features_config.md
+            - 'Generate config': sb-df-databricks/config/generate_config.md
+            - 'Pipeline config': sb-df-databricks/config/pipeline_config.md
+        - Helpers: 
+            - 'Connections': sb-df-databricks/helpers/connections.md
+            - 'Metrics': sb-df-databricks/helpers/metrics.md
+            - 'Status sender': sb-df-databricks/helpers/status_sender.md
+            - 'Utils': sb-df-databricks/helpers/utils.md
+        - Aggregation features: 
+            - 'Aggregation functions': sb-df-databricks/aggregation_features/aggregation_features.md
+        - Feature engineering:
+            - Utils:
+                - 'Last event lag': sb-df-databricks/feature_engineering/utils/last_event_lag.md
+                - 'Ordinary lag': sb-df-databricks/feature_engineering/utils/ordinary_lag.md
+                - 'Price elasticity': sb-df-databricks/feature_engineering/utils/price_elasticity.md
+                - 'Promo discount elasticity': sb-df-databricks/feature_engineering/utils/promo_discount_elasticity.md
+            - 'Behavioural features': sb-df-databricks/feature_engineering/behavioural_features.md
+            - 'Date features': sb-df-databricks/feature_engineering/date_features.md
+            - 'Expanding features': sb-df-databricks/feature_engineering/expanding_features.md
+            - 'Generate features': sb-df-databricks/feature_engineering/generate_features.md
+            - 'Holiday features': sb-df-databricks/feature_engineering/holidays_features.md
+            - 'Lag features': sb-df-databricks/feature_engineering/lag_features.md
+            - 'Moving features': sb-df-databricks/feature_engineering/moving_features.md
+            - 'Promo features': sb-df-databricks/feature_engineering/promo_features.md 
+        - Premodeling: 
+            - 'Premodeling functions': sb-df-databricks/premodeling/premodeling.md
+    - Azure ML code:
+        - 'Hyperparameters tuning': sb-df-az-machine-learning/hyperparams_tune.md
+        - 'Validation': sb-df-az-machine-learning/validation.md
+        - 'Final train': sb-df-az-machine-learning/final_train.md
+        - 'Scoring': sb-df-az-machine-learning/score.md
+        - 'Utils': sb-df-az-machine-learning/utils.md

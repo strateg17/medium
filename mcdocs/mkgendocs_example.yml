@@ -1,0 +1,25 @@
+sources_dir: docs
+templates_dir: docs/templates
+repo: https://github.com/LouisdeBruijn/Medium
+version: master
+
+pages:
+  - page: "scripts/Python tips/automate.md"
+    source: "Python tips/automate.py"
+    functions:
+      - automate_mkdocs_from_docstring
+      - indent
+      - docstring_from_type_hints
+  - page: "scripts/Python tips/format.md"
+    source: "Python tips/format.py"
+    functions:
+      - parse_arguments
+      - modular_sphinx_function
+      - modular_google_function
+  - page: "scripts/Python tips/base.md"
+    source: "Python tips/base.py"
+    functions:
+      - parse_arguments
+      - print_df
+      - unescape_html
+      - equal_array_items
